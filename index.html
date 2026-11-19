@@ -3,302 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fase 1: Pengenalan Konsep VPS & Cloud - Muhammad Ridwan Herlino</title>
-    <!-- Menggunakan Font Modern dari Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>LKPD Praktik VPS AWS - Muhammad Ridwan Herlino</title>
     <style>
-        :root {
-            --aws-dark: #232f3e;
-            --aws-orange: #ff9900;
-            --bg-page: #f1f5f9;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-        }
-
         * {
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            background-color: #f4f6f9;
+            padding: 30px 15px;
+            color: #1e293b;
         }
 
         .container {
-            width: 100%;
-            max-width: 960px;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        /* Header Identitas Siswa */
-        .header-box {
-            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 24px 30px;
-            margin-bottom: 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            box-shadow: 0 4px 12px rgba(35, 47, 62, 0.15);
+        /* Bagian Identitas Siswa */
+        .identitas {
+            background-color: #f8fafc;
+            border-left: 5px solid #ff9900;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .student-info h2 {
-            margin: 0 0 4px 0;
+        .identitas h1 {
+            font-size: 20px;
+            color: #232f3e;
+            margin-bottom: 8px;
+        }
+
+        .identitas p {
+            font-size: 14px;
+            color: #334155;
+            margin: 3px 0;
+        }
+
+        /* Judul Fase */
+        .fase-title {
+            color: #ff9900;
             font-size: 20px;
             font-weight: 700;
-            letter-spacing: -0.3px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 15px;
+            margin-top: 10px;
         }
 
-        .student-info p {
-            margin: 0;
-            font-size: 13px;
-            color: #cbd5e1;
-        }
-
-        .badge-class {
-            background-color: var(--aws-orange);
-            color: #111827;
-            font-weight: 700;
-            font-size: 14px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Judul Materi */
-        .section-header {
-            margin-bottom: 28px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 16px;
-        }
-
-        .tag-fase {
-            display: inline-block;
-            background-color: #fff7ed;
-            color: #ea580c;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title {
-            color: var(--aws-dark);
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-        }
-
-        .instruction {
+        .instruksi {
             font-size: 15px;
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.6;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        /* Grid Kartu Layanan */
-        .grid-cards {
+        /* Grid 2 Kolom untuk Kotak Materi */
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 20px;
+            margin-bottom: 35px;
         }
 
         .card {
+            border: 1px solid #cbd5e1;
+            border-top: 4px solid #232f3e;
+            padding: 20px;
             background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--aws-dark);
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            min-height: 150px;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
-            border-top-color: var(--aws-orange);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .card-icon {
-            width: 36px;
-            height: 36px;
-            background-color: #f8fafc;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .card-title {
-            font-size: 17px;
+        .card h3 {
+            font-size: 16px;
             font-weight: 700;
-            color: var(--aws-dark);
-            margin: 0;
+            color: #0f172a;
+            margin-bottom: 12px;
         }
 
-        .answer-input {
-            width: 100%;
-            border: 1px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 14px;
+        .card-content {
+            font-size: 13.5px;
+            color: #475569;
             line-height: 1.5;
-            color: var(--text-main);
-            background-color: #f8fafc;
-            outline: none;
-            resize: vertical;
-            min-height: 95px;
-            transition: all 0.2s ease;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #cbd5e1;
         }
 
-        .answer-input:focus {
-            background-color: #ffffff;
-            border-style: solid;
-            border-color: var(--aws-orange);
-            box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+        /* Daftar Checklist Fase 2 */
+        .checklist {
+            list-style: none;
+            margin-top: 10px;
         }
 
-        /* Tombol Cetak / Simpan */
-        .footer-actions {
-            margin-top: 32px;
+        .checklist li {
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
+            font-size: 15px;
+            margin-bottom: 14px;
+            color: #1e293b;
         }
 
-        .btn-print {
-            background-color: var(--aws-dark);
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 8px;
+        .checklist input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            accent-color: #ff9900;
             cursor: pointer;
-            transition: background-color 0.2s ease;
         }
 
-        .btn-print:hover {
-            background-color: #37475a;
-        }
-
-        /* Responsif untuk HP */
-        @media (max-width: 700px) {
+        /* Responsif untuk layar HP */
+        @media (max-width: 650px) {
             .container {
-                padding: 24px;
+                padding: 25px 20px;
             }
-            .grid-cards {
+            .grid-container {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        /* Pengaturan saat dicetak / Save as PDF */
-        @media print {
-            body {
-                background: #ffffff;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0;
-            }
-            .footer-actions {
-                display: none;
-            }
-            .answer-input {
-                border: 1px solid #cbd5e1;
-                background: #ffffff;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Identitas Siswa -->
-    <div class="header-box">
-        <div class="student-info">
-            <p>Lembar Kerja Peserta Didik</p>
-            <h2>Muhammad Ridwan Herlino</h2>
+    <div class="container">
+        <!-- Header Identitas -->
+        <div class="identitas">
+            <h1>LKPD Praktik VPS AWS</h1>
+            <p><strong>Nama :</strong> Muhammad Ridwan Herlino</p>
+            <p><strong>Kelas :</strong> X1 PPL 1</p>
         </div>
-        <span class="badge-class">XI PPL 1</span>
-    </div>
 
-    <!-- Judul dan Instruksi -->
-    <div class="section-header">
-        <span class="tag-fase">Fase 1</span>
-        <h1 class="section-title">Pengenalan Konsep VPS & Cloud</h1>
-        <p class="instruction">
+        <!-- Fase 1 -->
+        <h2 class="fase-title">Fase 1: Pengenalan Konsep VPS &amp; Cloud</h2>
+        <p class="instruksi">
             Jelaskan secara singkat pemahaman Anda mengenai perbedaan layanan berikut dengan mengisi kotak yang tersedia.
         </p>
+
+        <div class="grid-container">
+            <div class="card">
+                <h3>Shared Hosting</h3>
+                <p class="card-content">
+                    Layanan hosting di mana satu server fisik digunakan bersama-sama oleh banyak pengguna. Biaya lebih murah, namun sumber daya (RAM, CPU) terbatas dan saling berbagi.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Dedicated Server</h3>
+                <p class="card-content">
+                    Penyewaan satu server fisik secara penuh untuk satu pengguna/organisasi saja. Performa maksimal dan kontrol penuh, namun biaya operasional sangat tinggi.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Amazon Lightsail</h3>
+                <p class="card-content">
+                    Layanan VPS cloud dari AWS yang praktis dan mudah digunakan dengan paket harga bulanan tetap, cocok untuk pemula atau aplikasi skala kecil hingga menengah.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Amazon EC2</h3>
+                <p class="card-content">
+                    Layanan komputasi awan AWS yang fleksibel dan skalabel dengan kontrol infrastruktur mendalam, menggunakan skema pembayaran sesuai pemakaian (pay-as-you-go).
+                </p>
+            </div>
+        </div>
+
+        <!-- Fase 2 -->
+        <h2 class="fase-title">Fase 2: Persiapan dan Provisioning Server</h2>
+        <p class="instruksi">
+            Beri tanda centang pada kotak setelah Anda berhasil menyelesaikan setiap tahapan di konsol AWS.
+        </p>
+
+        <ul class="checklist">
+            <li>
+                <input type="checkbox" id="step1" checked>
+                <label for="step1">Mengaktifkan akun AWS dan login ke Management Console.</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step2" checked>
+                <label for="step2">Memilih Region AWS terdekat (misal: ap-southeast-1 / Singapore).</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step3" checked>
+                <label for="step3">Memilih Amazon Machine Image (AMI), misalnya Ubuntu 22.04 LTS.</label>
+            </li>
+        </ul>
     </div>
-
-    <!-- 4 Kotak Layanan -->
-    <div class="grid-cards">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon">🌐</div>
-                <h2 class="card-title">Shared Hosting</h2>
-            </div>
-            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Shared Hosting..."></textarea>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon">🖥️</div>
-                <h2 class="card-title">Dedicated Server</h2>
-            </div>
-            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Dedicated Server..."></textarea>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon">⚡</div>
-                <h2 class="card-title">Amazon Lightsail</h2>
-            </div>
-            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Amazon Lightsail..."></textarea>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon">☁️</div>
-                <h2 class="card-title">Amazon EC2</h2>
-            </div>
-            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Amazon EC2..."></textarea>
-        </div>
-    </div>
-
-    <!-- Tombol Cetak -->
-    <div class="footer-actions">
-        <button class="btn-print" onclick="window.print()">Cetak / Simpan PDF</button>
-    </div>
-</div>
 
 </body>
 </html>
