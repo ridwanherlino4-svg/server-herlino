@@ -3,123 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fase 1: Pengenalan Konsep VPS & Cloud</title>
+    <title>Fase 1: Pengenalan Konsep VPS & Cloud - Muhammad Ridwan Herlino</title>
+    <!-- Menggunakan Font Modern dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --aws-dark: #232f3e;
+            --aws-orange: #ff9900;
+            --bg-page: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
         * {
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: #ffffff;
-            color: #1a202c;
+            background-color: var(--bg-page);
+            color: var(--text-main);
             margin: 0;
-            padding: 30px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
+            min-height: 100vh;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 960px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
         }
 
-        /* Kotak Identitas di Bagian Atas */
+        /* Header Identitas Siswa */
         .header-box {
-            border: 1px solid #cbd5e1;
-            border-left: 5px solid #232f3e;
-            padding: 20px 25px;
+            background: linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 24px 30px;
             margin-bottom: 35px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            background-color: #f8fafc;
-        }
-
-        .info-item {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(35, 47, 62, 0.15);
         }
 
-        .info-label {
-            font-size: 12px;
-            color: #64748b;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-
-        .info-value {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            border-bottom: 2px dashed #cbd5e1;
-            padding-bottom: 6px;
-        }
-
-        /* Judul Utama */
-        .section-title {
-            color: #ff9900; /* Warna oranye khas AWS */
-            font-size: 22px;
+        .student-info h2 {
+            margin: 0 0 4px 0;
+            font-size: 20px;
             font-weight: 700;
-            margin: 0 0 12px 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e2e8f0;
+            letter-spacing: -0.3px;
+        }
+
+        .student-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .badge-class {
+            background-color: var(--aws-orange);
+            color: #111827;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Judul Materi */
+        .section-header {
+            margin-bottom: 28px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .tag-fase {
+            display: inline-block;
+            background-color: #fff7ed;
+            color: #ea580c;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            color: var(--aws-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
         }
 
         .instruction {
             font-size: 15px;
-            line-height: 1.5;
-            color: #1e293b;
-            margin-bottom: 25px;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
         }
 
-        /* Grid 2 Kolom untuk Kartu Materi */
+        /* Grid Kartu Layanan */
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         .card {
-            border: 1px solid #cbd5e1;
-            border-top: 4px solid #232f3e; /* Garis atas tebal berwarna biru gelap */
-            padding: 20px;
             background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--aws-dark);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            min-height: 140px;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+            border-top-color: var(--aws-orange);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 700;
-            color: #1e293b;
-            margin: 0 0 15px 0;
+            color: var(--aws-dark);
+            margin: 0;
         }
 
-        /* Area Input / Garis Putus-putus */
         .answer-input {
             width: 100%;
-            border: none;
-            border-bottom: 2px dashed #cbd5e1;
-            padding: 8px 0;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 12px;
             font-size: 14px;
-            color: #334155;
+            line-height: 1.5;
+            color: var(--text-main);
+            background-color: #f8fafc;
             outline: none;
-            resize: none;
-            background: transparent;
+            resize: vertical;
+            min-height: 95px;
+            transition: all 0.2s ease;
         }
 
         .answer-input:focus {
-            border-bottom-color: #ff9900;
+            background-color: #ffffff;
+            border-style: solid;
+            border-color: var(--aws-orange);
+            box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
         }
 
-        /* Responsif untuk layar HP */
-        @media (max-width: 650px) {
-            .header-box, .grid-cards {
+        /* Tombol Cetak / Simpan */
+        .footer-actions {
+            margin-top: 32px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-print {
+            background-color: var(--aws-dark);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: #37475a;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 700px) {
+            .container {
+                padding: 24px;
+            }
+            .grid-cards {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* Pengaturan saat dicetak / Save as PDF */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .footer-actions {
+                display: none;
+            }
+            .answer-input {
+                border: 1px solid #cbd5e1;
+                background: #ffffff;
             }
         }
     </style>
@@ -127,25 +241,64 @@
 <body>
 
 <div class="container">
-    <!-- Kotak Identitas Siswa -->
+    <!-- Identitas Siswa -->
     <div class="header-box">
-        <div class="info-item">
-            <span class="info-label">Nama Lengkap</span>
-            <span class="info-value">Muhammad Ridwan Herlino</span>
+        <div class="student-info">
+            <p>Lembar Kerja Peserta Didik</p>
+            <h2>Muhammad Ridwan Herlino</h2>
         </div>
-        <div class="info-item">
-            <span class="info-label">Kelas</span>
-            <span class="info-value">XI PPL 1</span>
-        </div>
+        <span class="badge-class">XI PPL 1</span>
     </div>
 
     <!-- Judul dan Instruksi -->
-    <h1 class="section-title">Fase 1: Pengenalan Konsep VPS & Cloud</h1>
-    <p class="instruction">
-        Jelaskan secara singkat pemahaman Anda mengenai perbedaan layanan berikut dengan mengisi kotak yang tersedia.
-    </p>
+    <div class="section-header">
+        <span class="tag-fase">Fase 1</span>
+        <h1 class="section-title">Pengenalan Konsep VPS & Cloud</h1>
+        <p class="instruction">
+            Jelaskan secara singkat pemahaman Anda mengenai perbedaan layanan berikut dengan mengisi kotak yang tersedia.
+        </p>
+    </div>
 
     <!-- 4 Kotak Layanan -->
     <div class="grid-cards">
         <div class="card">
-            <h2 class="card-title">Shared Hosting
+            <div class="card-header">
+                <div class="card-icon">🌐</div>
+                <h2 class="card-title">Shared Hosting</h2>
+            </div>
+            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Shared Hosting..."></textarea>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">🖥️</div>
+                <h2 class="card-title">Dedicated Server</h2>
+            </div>
+            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Dedicated Server..."></textarea>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">⚡</div>
+                <h2 class="card-title">Amazon Lightsail</h2>
+            </div>
+            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Amazon Lightsail..."></textarea>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">☁️</div>
+                <h2 class="card-title">Amazon EC2</h2>
+            </div>
+            <textarea class="answer-input" placeholder="Tulis pemahaman Anda tentang Amazon EC2..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tombol Cetak -->
+    <div class="footer-actions">
+        <button class="btn-print" onclick="window.print()">Cetak / Simpan PDF</button>
+    </div>
+</div>
+
+</body>
+</html>
